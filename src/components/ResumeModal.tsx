@@ -4,11 +4,13 @@ import {
   CERTIFICATIONS_LIST,
   CORE_COMPETENCIES,
   EDUCATION_LIST,
+  INTERNSHIPS_LIST,
   LANGUAGES_SPOKEN,
   PERSONAL_INTERESTS,
   PORTFOLIO_PROFILE,
   PROGRAMMING_LANGUAGES,
   PROJECTS_LIST,
+  TECHNICAL_DOMAINS,
 } from '../data/portfolio';
 
 export function generateResumeHtmlDocument(): string {
@@ -49,9 +51,18 @@ export function generateResumeHtmlDocument(): string {
     </div>`
   ).join('')}
 
+  <h2>Internships</h2>
+  ${INTERNSHIPS_LIST.map(
+    (i) => `<div class="entry">
+      <div class="entry-head"><span>${i.role}</span><span>${i.domain}</span></div>
+      <div class="muted">${i.summary}</div>
+    </div>`
+  ).join('')}
+
   <h2>Technical Skills & Competencies</h2>
   <ul>
     <li><strong>Programming Languages:</strong> ${PROGRAMMING_LANGUAGES.map((l) => l.name).join(', ')}</li>
+    ${TECHNICAL_DOMAINS.map((d) => `<li><strong>${d.title}:</strong> ${d.items.join(', ')}</li>`).join('')}
     <li><strong>Core Competencies:</strong> ${CORE_COMPETENCIES.map((c) => c.title).join(', ')}</li>
   </ul>
 
@@ -71,7 +82,7 @@ export function generateResumeHtmlDocument(): string {
   <h2>Languages & Interests</h2>
   <ul>
     <li><strong>Languages:</strong> ${LANGUAGES_SPOKEN.map((l) => `${l.language} (${l.level})`).join(', ')}</li>
-    <li><strong>Interests:</strong> ${PERSONAL_INTERESTS.join(', ')}</li>
+    <li><strong>Interests:</strong> ${PERSONAL_INTERESTS.map((i) => i.title).join(', ')}</li>
   </ul>
 </body>
 </html>`;
@@ -196,12 +207,37 @@ export function ResumeModal({isOpen, onClose}: ResumeModalProps) {
 
             <div>
               <h5 className="font-display text-xs font-semibold tracking-wider text-[#6D59A1] uppercase dark:text-[#A99AD4]">
+                Internships
+              </h5>
+              <div className="mt-2.5 space-y-3">
+                {INTERNSHIPS_LIST.map((intern) => (
+                  <div key={intern.id}>
+                    <p className="font-semibold text-[#202124] dark:text-[#F4F4F5]">
+                      {intern.role}{' '}
+                      <span className="font-normal text-xs text-[#5F6368] dark:text-[#A1A6B3]">
+                        · {intern.domain}
+                      </span>
+                    </p>
+                    <p className="mt-0.5 text-[#4A4E54] dark:text-[#C5C9D3]">{intern.summary}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h5 className="font-display text-xs font-semibold tracking-wider text-[#6D59A1] uppercase dark:text-[#A99AD4]">
                 Skills &amp; Competencies
               </h5>
               <p className="mt-2 text-[#4A4E54] dark:text-[#C5C9D3]">
                 <strong className="text-[#202124] dark:text-[#F4F4F5]">Programming Languages:</strong>{' '}
                 {PROGRAMMING_LANGUAGES.map((l) => l.name).join(', ')}
               </p>
+              {TECHNICAL_DOMAINS.map((domain) => (
+                <p key={domain.title} className="mt-1 text-[#4A4E54] dark:text-[#C5C9D3]">
+                  <strong className="text-[#202124] dark:text-[#F4F4F5]">{domain.title}:</strong>{' '}
+                  {domain.items.join(', ')}
+                </p>
+              ))}
               <p className="mt-1 text-[#4A4E54] dark:text-[#C5C9D3]">
                 <strong className="text-[#202124] dark:text-[#F4F4F5]">Core Competencies:</strong>{' '}
                 {CORE_COMPETENCIES.map((c) => c.title).join(', ')}
@@ -212,14 +248,16 @@ export function ResumeModal({isOpen, onClose}: ResumeModalProps) {
               <h5 className="font-display text-xs font-semibold tracking-wider text-[#6D59A1] uppercase dark:text-[#A99AD4]">
                 Projects
               </h5>
-              {PROJECTS_LIST.map((proj) => (
-                <div key={proj.id} className="mt-2">
-                  <p className="font-semibold text-[#202124] dark:text-[#F4F4F5]">
-                    {proj.title}
-                  </p>
-                  <p className="mt-1 text-[#4A4E54] dark:text-[#C5C9D3]">{proj.description}</p>
-                </div>
-              ))}
+              <div className="mt-2 space-y-3">
+                {PROJECTS_LIST.map((proj) => (
+                  <div key={proj.id}>
+                    <p className="font-semibold text-[#202124] dark:text-[#F4F4F5]">
+                      {proj.title}
+                    </p>
+                    <p className="mt-0.5 text-[#4A4E54] dark:text-[#C5C9D3]">{proj.description}</p>
+                  </div>
+                ))}
+              </div>
             </div>
 
             <div>
@@ -228,7 +266,7 @@ export function ResumeModal({isOpen, onClose}: ResumeModalProps) {
               </h5>
               <ul className="mt-2 list-disc space-y-1 pl-5 text-[#4A4E54] dark:text-[#C5C9D3]">
                 {CERTIFICATIONS_LIST.map((cert) => (
-                  <li key={cert.title}>
+                  <li key={cert.id}>
                     <strong className="text-[#202124] dark:text-[#F4F4F5]">{cert.title}</strong> —{' '}
                     {cert.issuer}
                   </li>
@@ -246,7 +284,7 @@ export function ResumeModal({isOpen, onClose}: ResumeModalProps) {
               </p>
               <p className="mt-1 text-[#4A4E54] dark:text-[#C5C9D3]">
                 <strong className="text-[#202124] dark:text-[#F4F4F5]">Interests:</strong>{' '}
-                {PERSONAL_INTERESTS.join(', ')}
+                {PERSONAL_INTERESTS.map((i) => i.title).join(', ')}
               </p>
             </div>
           </div>

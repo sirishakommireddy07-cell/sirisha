@@ -1,18 +1,20 @@
 import {useEffect, useState} from 'react';
 import {CheckCircle2, X} from 'lucide-react';
 import {AboutSection} from './components/AboutSection';
+import {CertificateModal} from './components/CertificateModal';
 import {CertificationsSection} from './components/CertificationsSection';
 import {ContactSection} from './components/ContactSection';
 import {EducationSection} from './components/EducationSection';
 import {Footer} from './components/Footer';
 import {HeroSection} from './components/HeroSection';
+import {InternshipSection} from './components/InternshipSection';
 import {LanguagesInterestsSection} from './components/LanguagesInterestsSection';
 import {Navbar} from './components/Navbar';
 import {ProjectsSection} from './components/ProjectsSection';
 import {ResumeModal, triggerResumeDownload} from './components/ResumeModal';
 import {SkillsSection} from './components/SkillsSection';
 import {SpiderDemoModal} from './components/SpiderDemoModal';
-import {NAV_ITEMS} from './data/portfolio';
+import {CertificationItem, NAV_ITEMS} from './data/portfolio';
 
 const THEME_STORAGE_KEY = 'sk-theme';
 
@@ -29,6 +31,7 @@ export default function App() {
   const [activeSection, setActiveSection] = useState<string>('home');
   const [spiderDemoOpen, setSpiderDemoOpen] = useState(false);
   const [resumeModalOpen, setResumeModalOpen] = useState(false);
+  const [selectedCertificate, setSelectedCertificate] = useState<CertificationItem | null>(null);
   const [resumeToast, setResumeToast] = useState(false);
 
   useEffect(() => {
@@ -86,9 +89,10 @@ export default function App() {
         />
         <AboutSection />
         <EducationSection />
+        <InternshipSection />
         <SkillsSection />
         <ProjectsSection theme={theme} onOpenSpiderDemo={() => setSpiderDemoOpen(true)} />
-        <CertificationsSection />
+        <CertificationsSection onOpenCertificate={(cert) => setSelectedCertificate(cert)} />
         <LanguagesInterestsSection />
         <ContactSection />
       </main>
@@ -102,6 +106,11 @@ export default function App() {
       />
 
       <ResumeModal isOpen={resumeModalOpen} onClose={() => setResumeModalOpen(false)} />
+
+      <CertificateModal
+        certificate={selectedCertificate}
+        onClose={() => setSelectedCertificate(null)}
+      />
 
       {/* Subtle download confirmation toast */}
       {resumeToast && (

@@ -88,11 +88,11 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="border-b border-[#E5E6EA] bg-[#F1F2F4]/60 py-16 sm:py-20 lg:py-24 transition-colors duration-200 dark:border-[#2C2F37] dark:bg-[#22242A]/50"
+      className="border-b border-[#E5E6EA] bg-[#FAFAF8] py-16 sm:py-20 lg:py-24 transition-colors duration-200 dark:border-[#2C2F37] dark:bg-[#17181C]"
     >
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl">
-          <p className="text-xs font-semibold tracking-wider text-[#6D59A1] uppercase dark:text-[#A99AD4]">
+          <p className="text-xs font-semibold tracking-wider text-[#4C6E91] uppercase dark:text-[#96B3D1]">
             Get in Touch
           </p>
           <h2 className="mt-2 font-display text-3xl font-bold tracking-tight text-[#202124] sm:text-4xl [text-wrap:balance] dark:text-[#F4F4F5]">
@@ -113,8 +113,8 @@ export function ContactSection() {
 
               <div className="mt-6 space-y-5">
                 <div className="flex items-start gap-3.5">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#F1F2F4] dark:bg-[#262932]">
-                    <Mail className="h-[18px] w-[18px] text-[#6D59A1] dark:text-[#A99AD4]" aria-hidden="true" />
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#EEF3F8] dark:bg-[#232A35]">
+                    <Mail className="h-[18px] w-[18px] text-[#4C6E91] dark:text-[#96B3D1]" aria-hidden="true" />
                   </div>
                   <div className="min-w-0 flex-1">
                     <p className="text-xs text-[#5F6368] dark:text-[#A1A6B3]">Email</p>
@@ -148,14 +148,14 @@ export function ContactSection() {
                 </div>
 
                 <div className="flex items-start gap-3.5">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#F1F2F4] dark:bg-[#262932]">
-                    <Phone className="h-[18px] w-[18px] text-[#6D59A1] dark:text-[#A99AD4]" aria-hidden="true" />
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#EEF3F8] dark:bg-[#232A35]">
+                    <Phone className="h-[18px] w-[18px] text-[#4C6E91] dark:text-[#96B3D1]" aria-hidden="true" />
                   </div>
                   <div>
                     <p className="text-xs text-[#5F6368] dark:text-[#A1A6B3]">Phone</p>
                     <a
                       href={PORTFOLIO_PROFILE.phoneHref}
-                      className="mt-0.5 block text-sm font-medium tabular-nums text-[#202124] hover:text-[#6D59A1] dark:text-[#F4F4F5] dark:hover:text-[#A99AD4]"
+                      className="mt-0.5 block text-sm font-medium tabular-nums text-[#202124] hover:text-[#4C6E91] dark:text-[#F4F4F5] dark:hover:text-[#96B3D1]"
                     >
                       {PORTFOLIO_PROFILE.phone}
                     </a>
@@ -163,8 +163,8 @@ export function ContactSection() {
                 </div>
 
                 <div className="flex items-start gap-3.5">
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#F1F2F4] dark:bg-[#262932]">
-                    <MapPin className="h-[18px] w-[18px] text-[#6D59A1] dark:text-[#A99AD4]" aria-hidden="true" />
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#EEF3F8] dark:bg-[#232A35]">
+                    <MapPin className="h-[18px] w-[18px] text-[#4C6E91] dark:text-[#96B3D1]" aria-hidden="true" />
                   </div>
                   <div>
                     <p className="text-xs text-[#5F6368] dark:text-[#A1A6B3]">Location</p>
@@ -179,7 +179,7 @@ export function ContactSection() {
                 <p className="text-xs font-medium text-[#5F6368] dark:text-[#A1A6B3]">
                   Connect Elsewhere
                 </p>
-                <div className="mt-3 flex flex-wrap gap-3">
+                <div className="mt-3 flex flex-wrap gap-2.5">
                   <a
                     href={PORTFOLIO_PROFILE.linkedin}
                     target="_blank"
@@ -198,6 +198,24 @@ export function ContactSection() {
                   >
                     <GitHubIcon />
                     <span>GitHub</span>
+                  </a>
+
+                  <a
+                    href={PORTFOLIO_PROFILE.whatsapp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex min-h-[40px] items-center gap-2 rounded-xl border border-[#D4D7DF] bg-[#FAFAF8] px-4 py-2 text-sm font-medium text-[#202124] transition-colors hover:border-[#8875B9] hover:bg-[#F1F2F4] whitespace-nowrap shrink-0 dark:border-[#323640] dark:bg-[#22242A] dark:text-[#F4F4F5] dark:hover:border-[#A99AD4] dark:hover:bg-[#2A2D35]"
+                  >
+                    <span>WhatsApp</span>
+                  </a>
+
+                  <a
+                    href={PORTFOLIO_PROFILE.instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex min-h-[40px] items-center gap-2 rounded-xl border border-[#D4D7DF] bg-[#FAFAF8] px-4 py-2 text-sm font-medium text-[#202124] transition-colors hover:border-[#8875B9] hover:bg-[#F1F2F4] whitespace-nowrap shrink-0 dark:border-[#323640] dark:bg-[#22242A] dark:text-[#F4F4F5] dark:hover:border-[#A99AD4] dark:hover:bg-[#2A2D35]"
+                  >
+                    <span>Instagram</span>
                   </a>
                 </div>
               </div>
@@ -327,7 +345,7 @@ export function ContactSection() {
                   <div className="pt-1">
                     <button
                       type="submit"
-                      className="inline-flex min-h-[44px] items-center gap-2 rounded-xl bg-[#7663A8] px-6 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#665496] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8875B9] whitespace-nowrap shrink-0 dark:bg-[#A99AD4] dark:text-[#17181C] dark:hover:bg-[#B8AAE0]"
+                      className="inline-flex min-h-[44px] items-center gap-2 rounded-xl bg-[#4C6E91] px-6 py-2.5 text-sm font-semibold text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#3E5C7B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5C7FA3] whitespace-nowrap shrink-0 dark:bg-[#829DBB] dark:text-[#17181C] dark:hover:bg-[#96B0CE]"
                     >
                       <Send className="h-4 w-4" aria-hidden="true" />
                       <span>Send Message</span>

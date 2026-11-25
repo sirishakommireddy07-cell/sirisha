@@ -39,7 +39,7 @@ export function Navbar({theme, onToggleTheme, activeSection}: NavbarProps) {
         </a>
 
         {/* Zone 2: Desktop Navigation Links */}
-        <nav aria-label="Primary navigation" className="hidden lg:flex items-center gap-6 xl:gap-7">
+        <nav aria-label="Primary navigation" className="hidden lg:flex items-center gap-5 xl:gap-6">
           {NAV_ITEMS.map((item) => {
             const isActive = activeSection === item.id;
             return (
