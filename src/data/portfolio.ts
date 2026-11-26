@@ -101,7 +101,7 @@ export const PORTFOLIO_PROFILE = {
   phone: '+91 9398305560',
   phoneHref: 'tel:+919398305560',
   linkedin: 'https://linkedin.com/in/sirisha-kommireddy',
-  github: 'https://github.com/sirishakommireddy',
+  github: 'https://github.com/sirishakommireddy07-cell',
   whatsapp: 'https://wa.me/919398305560',
   instagram: 'https://www.instagram.com/',
 };
@@ -300,7 +300,7 @@ export const PROJECTS_LIST: ProjectItem[] = [
     description:
       'Designed and built a modern, light-first personal portfolio featuring persistent Light and Dark mode switching, an interactive CV preview and download workflow, project showcases, and accessible navigation across all viewports.',
     technologies: ['React', 'TypeScript', 'Tailwind CSS', 'Responsive UI'],
-    githubUrl: 'https://github.com/subbu6149/Portfolio',
+   githubUrl: 'https://github.com/sirishakommireddy07-cell/sirisha',
     previewType: 'portfolio',
     featured: true,
   },
@@ -311,7 +311,7 @@ export const PROJECTS_LIST: ProjectItem[] = [
     description:
       'Developed a responsive front-end visual layout demonstrating dynamic path movements and physics tracking. Handled geometric coordinate configurations to create fluid spider-leg animation responses through user interactions.',
     technologies: ['HTML5 Canvas', 'JavaScript', 'CSS3', 'Coordinate Geometry', 'Inverse Kinematics'],
-    githubUrl: 'https://github.com/subbu6149/Portfolio',
+    githubUrl: 'https://github.com/sirishakommireddy07-cell/spider-animation',
     previewType: 'spider',
     featured: true,
   },
